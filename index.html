@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cálculo de Figuras Geométricas</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>KALKULOS</h1>
+    <h2>Calculadora de figuras geométricas</h2>
+
+    <div class="figure-buttons">
+      <button onclick="selectFigure('cuadrado')">Cuadrado</button>
+      <button onclick="selectFigure('círculo')">Círculo</button>
+      <button onclick="selectFigure('triángulo')">Triángulo</button>
+      <button onclick="selectFigure('rectángulo')">Rectángulo</button>
+    </div>
+
+    <div class="">
+        <br>Opciones de cálculo:
+    </div>
+
+    <div class="calculation-options">
+      <button onclick="setCalculation('área')">Área</button>
+      <button onclick="setCalculation('perímetro')">Perímetro</button>
+    </div>
+
+    <div id="input-container">
+        <label for="inputValue1"><br>Ingresa el primer valor:<br></label>
+        <input type="number" id="inputValue1" placeholder="Ingrese el primer valor">
+        
+        <div id="second-input" style="display: none;">
+          <label for="inputValue2"><br>Ingresa el segundo valor:<br></label>
+          <input type="number" id="inputValue2" placeholder="Ingrese el segundo valor">
+        </div>
+      
+        <div id="third-input" style="display: none;">
+          <label for="inputValue3"><br>Ingresa el tercer valor:<br></label>
+          <input type="number" id="inputValue3" placeholder="Ingrese el tercer valor">
+        </div>
+      </div>
+
+    <button class="calculate-button" onclick="calculate()">Calcular</button>
+
+    <div id="result" class="result">
+      <!-- Resultado se mostrará aquí -->
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
