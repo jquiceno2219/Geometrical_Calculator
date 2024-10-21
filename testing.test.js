@@ -9,6 +9,7 @@ let valorAltura;
 let valorRadio;
 let largo;
 let ancho;
+let tercerLado;
 
 // Función para calcular el área según el tipo de figura geométrica.
 const calcularArea = () => {
@@ -32,7 +33,9 @@ const calcularPerimetro = () => {
     case 'Cuadrado':
       return 4 * valorLado;
     case 'Triángulo':
-      return 'El perímetro del triángulo no puede calcularse con base y altura únicamente.';
+      return valorLado + valorBase + tercerLado;
+    case 'Rectángulo':
+      return 2 * (largo + ancho);
     default:
       return null;
   }
@@ -49,6 +52,7 @@ describe('Calculadora de Figuras Geométricas', () => {
     valorRadio = 0;
     largo = 0;
     ancho = 0;
+    tercerLado = 0;
   });
 
   it('debería calcular el área de un cuadrado', () => {
@@ -80,12 +84,13 @@ describe('Calculadora de Figuras Geométricas', () => {
     expect(resultado).toBe(6);
   });
 
-  it('debería manejar correctamente el cálculo del perímetro de un triángulo', () => {
+  it('debería calcular el perímetro de un triángulo', () => {
     tipoFigura = 'Triángulo';
-    valorBase = 3;
-    valorAltura = 4;
+    valorLado = 3;
+    valorBase = 4;
+    tercerLado = 5; // Asignar un valor al tercer lado
     resultado = calcularPerimetro();
-    expect(resultado).toBe('El perímetro del triángulo no puede calcularse con base y altura únicamente.');
+    expect(resultado).toBe(12); // 3 + 4 + 5
   });
 
   it('debería calcular el área de un rectángulo', () => {
@@ -94,5 +99,13 @@ describe('Calculadora de Figuras Geométricas', () => {
     ancho = 6;
     resultado = calcularArea();
     expect(resultado).toBe(24);
+  });
+
+  it('debería calcular el perímetro de un rectángulo', () => {
+    tipoFigura = 'Rectángulo';
+    largo = 4;
+    ancho = 6;
+    resultado = calcularPerimetro();
+    expect(resultado).toBe(20); // 2 * (4 + 6)
   });
 });
